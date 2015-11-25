@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<link rel="stylesheet" type="text/css" href="plural.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<!-- 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> ???
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+<script type="text/javascript" src="plural.js"></script>
+<TITLE>Plural</TITLE>
+
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="Microsoft FrontPage 5.0" name=GENERATOR></HEAD>
+
+<BODY onload = disableBtns(this.form) bgColor=#E2F7DF background = "mindmap-black-canvas.png">
+
+<CENTER>
+<FORM name=tictac><INPUT class="btn btn-primary width" name=Start onclick=changeAll(this.form) type=button value=" start " id= 'st'>
+    <INPUT class="btn btn-primary width" name=changebkg onclick=change_bkg(this.form) type=button value=" explanations " id= 'exp'><BR>
+  <INPUT name=player1_name value="Player 1" size="20">&nbsp;<INPUT name=player1 size=2 value=:0> <BR>
+  <INPUT name=player2_name value="Player 2" size="20">&nbsp;<INPUT name=player2 size=2 value=:0> <BR>
+  <INPUT name=player3_name value="Player 3" size="20">&nbsp;<INPUT name=player3 size=2 value=:0> <BR><BR>
+    <div id="radioButtonContainer" >
+        <label style = "color: #ffffff; font-size: 24px "><input type="radio" name="ansRdBtn" onclick="check(this.value)" value="s" id = 'ansRd'><span class="radio4" ></span>/s/</label>
+        <label style = "color: #ffffff; font-size: 24px "><input type="radio" name="ansRdBtn" onclick="check(this.value)" value="es" id = 'ansRd'><span class="radio4"></span>/es/</label>
+        <label style = "color: #ffffff; font-size: 24px "><input type="radio" name="ansRdBtn" onclick="check(this.value)" value="ies" id = 'ansRd'><span class="radio4"></span>/ies/</label>
+		<label style = "color: #ffffff; font-size: 24px "><input type="radio" name="ansRdBtn" onclick="check(this.value)" value="i" id = 'ansRd'><span class="radio4"></span>/irregular/</label>
+    </div>
+    <div id="invisiblePar" style="display:none">
+        <p><br><br></p>
+
+    </div>
+
+
+<p id = "question" style= "color: #ffffff ">What is the sound of ED here ?<br></p>
+ 
+
+<script language="javascript">
+var tableHtmlCode = null;
+tableHtmlCode = "<TABLE border=1 borderColor=#111111 cellPadding=5 cellSpacing=5 style="+'"'+"BORDER-COLLAPSE: collapse"+'"'+">"+"<TBODY>";
+function constructTable () {
+var counter = 0;
+   for (x = 0; x < line; x++) 
+                       {
+                        tableHtmlCode += " <TR>";
+                        for (y = 0; y < col; y++) 
+                          {	
+                           tableHtmlCode += "<TD align=middle bgCblolor=#c8d5d5>" + "<INPUT class="+'"'+ "btn btn-default width"+'"' + "name=b" + x + " onclick=change_b(this.form," + x +","+y+","+ counter + ") type=button value="+'"          "'+" id = "+"'"+"btn-"+x+y+"'"+">"+" </TD>";
+                           counter++;
+                           }
+								tableHtmlCode += " </TR>";                       
+                       }
+return tableHtmlCode;
+}                       
+tableHtmlCode += constructTable();
+ 
+tableHtmlCode +=  "</TBODY> </TABLE>";
+document.write(tableHtmlCode);
+</script>
+
+            <div class="container">
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-1">/id/</button>
+		<div class="modal fade" id="modal-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					 <div class="modal-header">
+					 	<button type="button" class="close" data-dismiss="modal">&times;</button>
+					 	<h3 class="modal-title">/id/ sound = extra syllable</h3>
+					 </div>
+					 <div class="modal-body">
+					 <img src="mindmap-id.png" alt="Mountain View" style="width:100%;height:auto;">
+					 	 
+					 </div>
+
+					 <!-- <div class="modal-footer">
+					 ++++fadsfasdfadsfdfdfsdfsdafasdf
+					 	<a href="" class="btn btn-default" data-dismiss="modal">Close</a>
+					 	<a href="" class="btn btn-primary">Download</a>
+					 </div> -->
+				</div>
+			</div>
+		</div>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-2">/t/</button>
+		<div class="modal fade" id="modal-2">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					 <div class="modal-header">
+					 	<button type="button" class="close" data-dismiss="modal">&times;</button>
+					 	<h3 class="modal-title">/id/ sound = extra syllable</h3>
+					 </div>
+					 <div class="modal-body">
+					 <img src="mindmap-t.png" alt="Mountain View" style="width:100%;height:auto;">
+					 	 
+					 </div>
+
+					 <!-- <div class="modal-footer">
+					 ++++????
+
+					 	<a href="" class="btn btn-default" data-dismiss="modal">Close</a>
+					 	<a href="" class="btn btn-primary">Download</a>
+					 </div> -->
+				</div>
+			</div>
+		</div>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-3">/d/</button>
+		<div class="modal fade" id="modal-3">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					 <div class="modal-header">
+					 	<button type="button" class="close" data-dismiss="modal">&times;</button>
+					 	<h3 class="modal-title">/id/ sound = extra syllable</h3>
+					 </div>
+					 <div class="modal-body">
+					 <img src="mindmap-d.png" alt="Mountain View" style="width:100%;height:auto;">
+					 	 
+					 </div>
+
+					 <!-- <div class="modal-footer">
+					 	<a href="" class="btn btn-default" data-dismiss="modal">Close</a>
+					 	<a href="" class="btn btn-primary">Download</a>
+					 </div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+<h1 id="header_player" style= "color: #ffffff">Player's name</h1>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<BR></FORM></CENTER></BODY></HTML>
