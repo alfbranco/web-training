@@ -16,7 +16,7 @@
             var questionnaire = {
                 file: '6.3.mp3',
                 questions: [{
-                        question: 'this is question one',
+                        question: 'Most men don'+"'"+'t like cooking!',
                         start: 4.5,
                         end: 23000
                     },
@@ -71,6 +71,7 @@
             }
 
         })
+
     </script>
 
 </head>
@@ -80,14 +81,7 @@
 </audio>
 
 <form>
-    <div id="radioButtonContainer">
-        <label style="color: #ffffff; font-size: 24px "><input type="radio" name="ansRdBtn" onclick="check(this.value)"
-                                                               value="s" id='ansRd'><span
-                class="radio4"></span>a)</label>
-        <label style="color: #ffffff; font-size: 24px "><input type="radio" name="ansRdBtn" onclick="check(this.value)"
-                                                               value="es" id='ansRd'><span
-                class="radio4"></span>b)</label>
-    </div>
+
     <br>
     Questions
     <br>
@@ -95,7 +89,27 @@
 
 
     <button id="label" type="button" class="btn btn-primary btn-block" id="play1">Waiting 4 challenge</button>
-
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Language</label>
+        <div class="col-xs-2 selectContainer">
+            <select name="language" class="form-control">
+                <option value="">Simon</option>
+                <option value=""></option>
+                <option value="true">True</option>
+                <option value="false">False</option>
+                <option value="not sure">Not sure</option>
+            </select>
+        </div>
+        <div class="col-xs-2 selectContainer">
+            <select name="language" class="form-control">
+                <option value="">Emma</option>
+                <option value=""></option>
+                <option value="true">True</option>
+                <option value="false">False</option>
+                <option value="not sure">Not sure</option>
+            </select>
+        </div>
+    </div>
 
 </form>
 </body>
