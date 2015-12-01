@@ -36,6 +36,19 @@
             playAudio.attr('src', questionnaire.file)
             //playAudio.load();
 
+            var timeout = 0;
+            var audio = playAudio[0];
+            //audio.volume = 0.4;
+            audio.load();
+
+            audio.addEventListener('canplaythrough', function () {
+                setTimeout(function () {
+                            audio.pause();
+                            $('button').prop('disabled', false);
+                        },
+                        timeout);
+            }, false);
+
             //alfredo_muda_o_nome();
 
             $('#label').click(function(){
@@ -51,18 +64,10 @@
                 $('#label').text(question_current.question)
                 $('button').prop('disabled', true);
 
-                var audio = playAudio[0];
-                //audio.volume = 0.4;
-                audio.load();
+                timeout = question_current.end;
                 audio.currentTime = question_current.start;
                 audio.play();
-                audio.addEventListener('canplaythrough', function () {
-                    setTimeout(function () {
-                                audio.pause();
-                                $('button').prop('disabled', false);
-                            },
-                            question_current.end);
-                }, false);
+
             }
 
         })
