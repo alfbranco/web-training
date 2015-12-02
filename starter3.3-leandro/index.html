@@ -12,13 +12,15 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
         jQuery(document).ready(function () {
+
             var index = -1
             var questionnaire = {
                 file: '6.3.mp3',
                 questions: [{
                         question: 'Most men don'+"'"+'t like cooking!',
+                        answer: ['true','not sure'],
                         start: 4.5,
-                        end: 23000
+                        end: 3000
                     },
                     {
                         question: 'this is question two',
@@ -35,7 +37,7 @@
             var playAudio = $('#playAudio');
             playAudio.attr('src', questionnaire.file)
             //playAudio.load();
-
+            //$('#ans_simon').open();
             var timeout = 0;
             var audio = playAudio[0];
             //audio.volume = 0.4;
@@ -45,8 +47,18 @@
                 setTimeout(function () {
                             audio.pause();
                             $('button').prop('disabled', false);
+
+                            $("#ans_simon").attr('disabled', false);
+                            $("#ans_emma").attr('disabled', false);
+
+                            if(timeout > 0) {
+                                $("#ans_simon").val('');
+                                $("#ans_emma").val('');
+                            }
                         },
                         timeout);
+                //$("#ans_simon").attr('disabled', false)
+
             }, false);
 
             //alfredo_muda_o_nome();
@@ -61,8 +73,11 @@
 
             function fast_foward(){
                 var question_current = questionnaire.questions[index];
-                $('#label').text(question_current.question)
+                $('#label').text(question_current.question);
                 $('button').prop('disabled', true);
+
+                $("#ans_simon").attr('disabled', true);
+                $("#ans_emma").attr('disabled', true);
 
                 timeout = question_current.end;
                 audio.currentTime = question_current.start;
@@ -70,6 +85,33 @@
 
             }
 
+            $('.answer').click(function(){
+
+                var question_current = questionnaire.questions[index];
+                var correct_answer = question_current.answer[$('.answer').index(this)];
+
+                //var selected = $(this).find("option:selected").val();
+                var selected = $(this).val();
+
+                alert(selected + ' ' + correct_answer);
+            })
+/*
+            $('#ans_simon').click(function(){
+                var question_current = questionnaire.questions[index];
+                var correct_answer = question_current.answer[0];
+                var selected = $(this).val();
+
+                alert('Simon: ' + selected + ' ' + correct_answer);
+            })
+
+            $('#ans_emma').click(function(){
+                var question_current = questionnaire.questions[index];
+                var correct_answer = question_current.answer[1];
+                var selected = $(this).val();
+
+                alert('Emma: ' + selected + ' ' + correct_answer);
+            })
+*/
         })
 
     </script>
@@ -92,18 +134,16 @@
     <div class="form-group">
         <label class="col-xs-3 control-label">Language</label>
         <div class="col-xs-2 selectContainer">
-            <select name="language" class="form-control">
+            <select multiple id="ans_simon" name="ans_simon" class="form-control answer" size="5">
                 <option value="">Simon</option>
-                <option value=""></option>
                 <option value="true">True</option>
                 <option value="false">False</option>
                 <option value="not sure">Not sure</option>
             </select>
         </div>
         <div class="col-xs-2 selectContainer">
-            <select name="language" class="form-control">
+            <select multiple id="ans_emma" name="ans_emma" class="form-control answer" size="5">
                 <option value="">Emma</option>
-                <option value=""></option>
                 <option value="true">True</option>
                 <option value="false">False</option>
                 <option value="not sure">Not sure</option>
