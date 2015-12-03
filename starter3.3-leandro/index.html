@@ -9,6 +9,32 @@
 
     <meta charset="UTF-8">
     <title>Starter 3-3</title>
+    <style>
+
+        .alfredo{
+            opacity: .1;
+        }
+        div.img {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+        }
+
+        div.img:hover {
+            border: 1px solid #777;
+        }
+
+        div.img img {
+            width: 100%;
+            height: auto;
+        }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
         jQuery(document).ready(function () {
@@ -18,7 +44,7 @@
                 file: '6.3.mp3',
                 questions: [{
                         question: 'Most men don'+"'"+'t like cooking!',
-                        answer: ['true','not sure'],
+                        answer: ['not sure','true'],
                         start: 4.5,
                         end: 3000
                     },
@@ -52,8 +78,8 @@
                             $("#ans_emma").attr('disabled', false);
 
                             if(timeout > 0) {
-                                $("#ans_simon").val('');
-                                $("#ans_emma").val('');
+                                $("#ans_simon").val('simon');
+                                $("#ans_emma").val('emma');
                             }
                         },
                         timeout);
@@ -92,7 +118,8 @@
 
                 //var selected = $(this).find("option:selected").val();
                 var selected = $(this).val();
-
+                //alert($('img')[0]);
+                $(".container alfredo").opacity=1;
                 alert(selected + ' ' + correct_answer);
             })
 /*
@@ -118,6 +145,19 @@
 
 </head>
 <BODY style="background-color: dimgrey">
+<div class="container alfredo">
+    <a target="_blank" href="smiley-up.jpg">
+        <img src="smiley-up.jpg" alt="up" width="150" height="150">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="container alfredo">
+    <a target="_blank" href="smiley-down.jpeg">
+        <img src="smiley-down.jpeg" alt="down" width="150" height="150">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+</div>
 <audio id='playAudio' controls>
     your browser does not support....
 </audio>
@@ -135,7 +175,8 @@
         <label class="col-xs-3 control-label">Language</label>
         <div class="col-xs-2 selectContainer">
             <select multiple id="ans_simon" name="ans_simon" class="form-control answer" size="5">
-                <option value="">Simon</option>
+                <option value="simon">Simon</option>
+                <option value=""></option>
                 <option value="true">True</option>
                 <option value="false">False</option>
                 <option value="not sure">Not sure</option>
@@ -143,7 +184,8 @@
         </div>
         <div class="col-xs-2 selectContainer">
             <select multiple id="ans_emma" name="ans_emma" class="form-control answer" size="5">
-                <option value="">Emma</option>
+                <option value="emma">Emma</option>
+                <option value=""></option>
                 <option value="true">True</option>
                 <option value="false">False</option>
                 <option value="not sure">Not sure</option>
