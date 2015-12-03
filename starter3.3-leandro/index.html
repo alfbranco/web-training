@@ -10,30 +10,9 @@
     <meta charset="UTF-8">
     <title>Starter 3-3</title>
     <style>
-
-        .alfredo{
-            opacity: .1;
-        }
-        div.img {
-            margin: 5px;
-            border: 1px solid #ccc;
-            float: left;
-            width: 180px;
-        }
-
-        div.img:hover {
-            border: 1px solid #777;
-        }
-
-        div.img img {
-            width: 100%;
-            height: auto;
-        }
-
-        div.desc {
-            padding: 15px;
-            text-align: center;
-        }
+          .position_it{
+              float : left;
+          }
     </style>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
@@ -100,6 +79,7 @@
             function fast_foward(){
                 var question_current = questionnaire.questions[index];
                 $('#label').text(question_current.question);
+                $("h1").text(question_current.question);
                 $('button').prop('disabled', true);
 
                 $("#ans_simon").attr('disabled', true);
@@ -107,6 +87,7 @@
 
                 timeout = question_current.end;
                 audio.currentTime = question_current.start;
+                audio.volume =.5;
                 audio.play();
 
             }
@@ -119,26 +100,9 @@
                 //var selected = $(this).find("option:selected").val();
                 var selected = $(this).val();
                 //alert($('img')[0]);
-                $(".container alfredo").opacity=1;
-                alert(selected + ' ' + correct_answer);
-            })
-/*
-            $('#ans_simon').click(function(){
-                var question_current = questionnaire.questions[index];
-                var correct_answer = question_current.answer[0];
-                var selected = $(this).val();
 
-                alert('Simon: ' + selected + ' ' + correct_answer);
             })
 
-            $('#ans_emma').click(function(){
-                var question_current = questionnaire.questions[index];
-                var correct_answer = question_current.answer[1];
-                var selected = $(this).val();
-
-                alert('Emma: ' + selected + ' ' + correct_answer);
-            })
-*/
         })
 
     </script>
@@ -146,12 +110,12 @@
 </head>
 <BODY style="background-color: dimgrey">
 
-        <img src="smiley-up.jpg" alt="up" width="150" height="150">
 
 
 
 
-        <img src="smiley-down.jpeg" alt="down" width="150" height="150">
+
+
 
 <audio id='playAudio' controls>
     your browser does not support....
@@ -160,16 +124,16 @@
 <form>
 
     <br>
-    Questions
-    <br>
-    it finally worked
+    <h1 id="question-text">Questions</h1>
+
 
 
     <button id="label" type="button" class="btn btn-primary btn-block" id="play1">Waiting 4 challenge</button>
-    <div class="form-group">
-        <label class="col-xs-3 control-label">Language</label>
+    <div class="form-group answer">
+
+
         <div class="col-xs-2 selectContainer">
-            <select multiple id="ans_simon" name="ans_simon" class="form-control answer" size="5">
+            <select multiple id="ans_simon" name="ans_simon" class="form-control answer position_it" size="5">
                 <option value="simon">Simon</option>
                 <option value=""></option>
                 <option value="true">True</option>
@@ -177,6 +141,7 @@
                 <option value="not sure">Not sure</option>
             </select>
         </div>
+       <div> <img src="question.jpg" alt="up" width="150" height="150"></div>
         <div class="col-xs-2 selectContainer">
             <select multiple id="ans_emma" name="ans_emma" class="form-control answer" size="5">
                 <option value="emma">Emma</option>
