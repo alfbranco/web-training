@@ -52,13 +52,14 @@
                 setTimeout(function () {
                             audio.pause();
                             $('button').prop('disabled', false);
-
                             $("#ans_simon").attr('disabled', false);
                             $("#ans_emma").attr('disabled', false);
 
                             if(timeout > 0) {
                                 $("#ans_simon").val('simon');
                                 $("#ans_emma").val('emma');
+                                $(".feedback_pic").attr("src","question.jpg");
+                                $('button').prop('disabled', true);
                             }
                         },
                         timeout);
@@ -71,6 +72,8 @@
             $('#label').click(function(){
                 //if(questionnaire.questions.length < index) {
                     index++;
+                    //$(".feedback_pic").eq(1).attr("src","question.jpg");
+                    $('button').prop('disabled', true);
                     fast_foward();
                     //alert(index) jsdkfja
                 //}
@@ -78,7 +81,7 @@
 
             function fast_foward(){
                 var question_current = questionnaire.questions[index];
-                $('#label').text(question_current.question);
+                $('#label').text('Next Question');
                 $("h1").text(question_current.question);
                 $('button').prop('disabled', true);
 
@@ -97,9 +100,18 @@
                 var question_current = questionnaire.questions[index];
                 var correct_answer = question_current.answer[$('.answer').index(this)];
 
-                //var selected = $(this).find("option:selected").val();
                 var selected = $(this).val();
-                //alert($('img')[0]);
+                if (correct_answer == selected){
+                    $(".feedback_pic").eq($('.answer').index(this)).attr("src","smiley-up.jpg");
+                    $(".feedback_pic").fadeIn(300);
+                }else{
+                    $(".feedback_pic").eq($('.answer').index(this)).attr("src","smiley-down.jpeg");
+                    $(".feedback_pic").fadeIn(300);}
+                if (($(".feedback_pic").eq(0).attr('src'))==("smiley-up.jpg"))
+                {
+                    alert ('hello');
+                }
+
 
             })
 
@@ -128,11 +140,11 @@
 
 
 
-    <button id="label" type="button" class="btn btn-primary btn-block" id="play1">Waiting 4 challenge</button>
-    <div class="form-group answer">
+    <button id="label" type="button" class="btn btn-primary btn-block" id="play1">Click here to start</button>
+    <div class="form-group ">
 
 
-        <div class="col-xs-2 selectContainer">
+        <div class="col-xs-2 selectContainer ">
             <select multiple id="ans_simon" name="ans_simon" class="form-control answer position_it" size="5">
                 <option value="simon">Simon</option>
                 <option value=""></option>
@@ -141,8 +153,8 @@
                 <option value="not sure">Not sure</option>
             </select>
         </div>
-       <div> <img src="question.jpg" alt="up" width="150" height="150"></div>
-        <div class="col-xs-2 selectContainer">
+       <div> <img class="feedback_pic" src="" alt="answer appears here 1" width="150" height="150"></div>
+        <div class="col-xs-2 selectContainer ">
             <select multiple id="ans_emma" name="ans_emma" class="form-control answer" size="5">
                 <option value="emma">Emma</option>
                 <option value=""></option>
@@ -151,6 +163,7 @@
                 <option value="not sure">Not sure</option>
             </select>
         </div>
+        <div> <img class="feedback_pic" src="" alt="answer appears here 2" width="150" height="150"></div>
     </div>
 
 </form>
