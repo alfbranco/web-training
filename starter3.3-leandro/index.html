@@ -22,10 +22,17 @@
             var questionnaire = {
                 file: '6.3.mp3',
                 questions: [{
-                    question: 'Most men don' + "'" + 't like cooking!',
+                    question: 'Most men don\'t like cooking!',
                     players: [
-                        {'name': 'Simmon', choices: ['true', 'false', 'not sure'], 'correct_ans': 'not sure', passed: null},
-                        {'name': 'Emma', choices: ['true', 'false', 'not sure'], 'correct_ans': 'true'}],
+                        {
+                            name: 'Simmon',
+                            choices: ['true', 'false', 'not sure'],
+                            correct_ans: 'not sure',
+                            passed: null
+                        },
+                        {
+                            name: 'Emma', choices: ['true', 'false', 'not sure'], correct_ans: 'true', passed: null
+                        }],
                     answer: ['not sure', 'true'],
                     start: 4.5,
                     end: 3000
@@ -86,13 +93,13 @@
                 $('button').prop('disabled', true);
 
                 $('#players').empty();
-                $.each(question_current.players, function( index, player ) {
+                $.each(question_current.players, function (index, player) {
                     //$('#people').append('teste')
-                    var html = '<div class="col-xs-2 selectContainer " style="float:left; width: 33%;">';
+                    var html = '<div class="col-xs-2 selectContainer " style="float:left; width: 50%;">';
                     html += '<select multiple class="form-control answer position_it" size="5">';
-                    html += '<option value="' +  player.name + '">' +  player.name + '</option>';
-                    $.each(player.choices, function( index, choice ) {
-                        html += '<option value="' +  choice + '">' +  choice + '</option>';
+                    html += '<option value="' + player.name + '">' + player.name + '</option>';
+                    $.each(player.choices, function (index, choice) {
+                        html += '<option value="' + choice + '">' + choice + '</option>';
                     })
                     html += '</select>';
                     html += '<div><img class="feedback_pic" src="question.jpg" alt="answer appears here 1" width="150" height="150"></div>';
@@ -109,7 +116,7 @@
 
             }
 
-            $(document).on('click','.answer', function () {
+            $(document).on('click', '.answer', function () {
                 var position = $('.answer').index(this);
 
                 var question_current = questionnaire.questions[index];
@@ -148,34 +155,34 @@
 
     <button id="label" type="button" class="btn btn-primary btn-block" id="play1">Click here to start</button>
     <div id="container">
-    <div id="players" class="form-group " style="text-align: center">
+        <div id="players" class="form-group " style="text-align: center">
 
-<!--
-        <div class="col-xs-2 selectContainer " style="float:left; width: 50%;">
-            <select multiple id="ans_simon" name="ans_simon" class="form-control answer position_it" size="5">
-                <option value="simon">Simon</option>
-                <option value=""></option>
-                <option value="true">True</option>
-                <option value="false">False</option>
-                <option value="not sure">Not sure</option>
-            </select>
+            <!--
+                    <div class="col-xs-2 selectContainer " style="float:left; width: 50%;">
+                        <select multiple id="ans_simon" name="ans_simon" class="form-control answer position_it" size="5">
+                            <option value="simon">Simon</option>
+                            <option value=""></option>
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                            <option value="not sure">Not sure</option>
+                        </select>
 
-            <div><img class="feedback_pic" src="" alt="answer appears here 1" width="150" height="150"></div>
+                        <div><img class="feedback_pic" src="" alt="answer appears here 1" width="150" height="150"></div>
+                    </div>
+
+                            <div class="col-xs-2 selectContainer " style="float:left; width: 50%;">
+                                <select multiple id="ans_emma" name="ans_emma" class="form-control answer" size="5">
+                                    <option value="emma">Emma</option>
+                                    <option value=""></option>
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                    <option value="not sure">Not sure</option>
+                                </select>
+
+                                <div><img class="feedback_pic" src="" alt="answer appears here 2" width="150" height="150"></div>
+                            </div>
+                    -->
         </div>
-
-                <div class="col-xs-2 selectContainer " style="float:left; width: 50%;">
-                    <select multiple id="ans_emma" name="ans_emma" class="form-control answer" size="5">
-                        <option value="emma">Emma</option>
-                        <option value=""></option>
-                        <option value="true">True</option>
-                        <option value="false">False</option>
-                        <option value="not sure">Not sure</option>
-                    </select>
-
-                    <div><img class="feedback_pic" src="" alt="answer appears here 2" width="150" height="150"></div>
-                </div>
-        -->
-    </div>
     </div>
 </form>
 </body>
