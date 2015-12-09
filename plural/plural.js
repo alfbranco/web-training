@@ -1,3 +1,41 @@
+function Grid (lines, cols) {
+    this.lines = lines;
+    this.cols = cols;
+
+    console.log('Grid created ' + this.lines + 'X' + this.cols);
+
+   this.render = function () {
+        console.log('Grid rendered');
+        for(var x = 0; x < this.lines; x++){
+            for(var y = 0; y < this.cols; y++){
+             console.log('Grid render element: ' + x + ' X ' + y);
+            }
+        }
+    };
+
+
+}
+
+function Cell () {
+    var used = false;
+    var x = -1;
+    var y = -1;
+    var owner = null;
+    var parent = null;
+
+    this.Cell = function () {
+
+    };
+
+    this.render = function () {
+        alert('The Cell render')
+    };
+}
+
+var grid = new Grid(3,4);
+grid.render();
+//**************************
+
 var player1 = 0; // these var stores the points of each player
 var player2 = 0;
 var player3 = 0;
